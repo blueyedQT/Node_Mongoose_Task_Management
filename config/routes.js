@@ -22,4 +22,14 @@ module.exports = function Routes(app) {
 			}
 		});
 	});
+	app.get('/tasks/:id', function(req, res) {
+		console.log(req.params.id);
+		Task.remove({_id: req.params.id}, function(err) {
+			if(err) {
+				res.send(JSON.stringify(err));
+			} else {
+				res.send('deleted');
+			}
+		})
+	})
 };

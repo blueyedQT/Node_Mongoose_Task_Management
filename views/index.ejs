@@ -25,7 +25,7 @@
                 <td><%= tasks[i].deadline.toDateString() %></td>
                 <td><%= tasks[i].date_created.toDateString() %></td>
                 <td>
-                    <form action="tasks/<%= tasks[i]._id %>" method="post">
+                    <form action="tasks/<%= tasks[i]._id %>" method="get">
                         <input type="hidden" value="delete">
                         <input type="submit" value="Remove">
                     </form>
