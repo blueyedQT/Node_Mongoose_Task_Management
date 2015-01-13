@@ -1,7 +1,7 @@
 var express = require('express.io');
 var http = require('http');
 var path = require('path');
-var app = express();
+var app = express().io();
 
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));

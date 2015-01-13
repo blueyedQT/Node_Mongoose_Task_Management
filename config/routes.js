@@ -1,13 +1,25 @@
 var mongoose = require('mongoose'),
-	User = mongoose.model('User');
-module.exports = function Routes(app){
-	app.get('/', function(req, res){
-		res.render('index', {title: 'Task Management'});
+	Task = mongoose.model('Task');
+
+module.exports = function Routes(app) {
+	app.get('/', function(req, res) {
+		Task.find(function(err, task_array) {
+			if(err) {
+				console.log(err);
+			} else {
+				res.render('index', {title: 'Task Management', tasks: task_array});
+			}
+		});		
 	});
-	app.post('/users/create', function(req, res){
-		var a = new User(req.body);
-		a.save(function(err, a){
-			console.log(err, a);
+	app.post('/tasks', function(req, res) {
+		console.log(req.body);
+		var new_task = new Task(req.body);
+		new_task.save(function(err) {
+			if(err) {
+				res.send(JSON.stringify(err));
+			} else {
+				res.send('saved');
+			}
 		});
 	});
 };
