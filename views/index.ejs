@@ -5,7 +5,44 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Tasks</h1>
+    <table>
+    	<thead>
+    		<tr>
+    			<th>Tasks</th>
+    			<th>Priority</th>
+    			<th>Deadline</th>
+    			<th>Created</th>
+    			<th>Actions</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr>
+    			<td>Eat Lunch</td>
+    			<td>HIGH</td>
+    			<td>March 23rd 2015</td>
+    			<td>June 1st 2014</td>
+    			<td>
+    				<form action="tasks/[id]" method="post">
+    					<input type="hidden" value="delete">
+    					<input type="submit" value="Remove">
+    				</form>
+    			</td>
+    		</tr>
+    	</tbody>
+    </table>
+    <h1>Add a new task</h1>
+    <form action="/tasks" method="post">
+    	<p>Task Name: <input type="text" name="task_name" placeholder="Task Name"></p>
+    	<p>Priority: 
+    		<select name="priority">
+    			<option value="LOW">LOW</option>
+    			<option value="MEDIUM">MEDIUM</option>
+    			<option value="HIGH">HIGH</option>    			
+    		</select>
+    	</p>
+    	<p>Deadline: <input type="date" name="deadline"></p>
+    	<input type="submit" value="Create">
+    </form>
 </body>
 </html>

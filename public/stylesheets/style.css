@@ -6,3 +6,14 @@ body {
 a {
   color: #00B7FF;
 }
+
+/* My Styles */
+table {
+	border: 1px solid black;
+}
+thead {
+	background-color: lightgray;
+}
+td {
+	padding-right: 30px;
+}
